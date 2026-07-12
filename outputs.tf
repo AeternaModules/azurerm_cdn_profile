@@ -1,3 +1,7 @@
+output "cdn_profiles_id" {
+  description = "Map of id values across all cdn_profiles, keyed the same as var.cdn_profiles"
+  value       = { for k, v in azurerm_cdn_profile.cdn_profiles : k => v.id }
+}
 output "cdn_profiles_location" {
   description = "Map of location values across all cdn_profiles, keyed the same as var.cdn_profiles"
   value       = { for k, v in azurerm_cdn_profile.cdn_profiles : k => v.location }
